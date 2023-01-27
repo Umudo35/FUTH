@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 10;
-    public int Health;
+    public float maxHealth;
+    public float health;
+    public Image filler;
     private PlayerRespawn playerRespawn;
   private void Start()
     {
@@ -14,10 +16,16 @@ public class PlayerHealth : MonoBehaviour
 
  public void TakeDamage(int damage)
     {
-        Health -= damage;
-        if (Health <= 0)
+        health -= damage;
+        if (health <= 0)
         {
             playerRespawn.RespawnNow();
         }
     }
+  
+    private void Update()
+    {
+        filler.fillAmount = health / maxHealth;
+    }
+
 }
