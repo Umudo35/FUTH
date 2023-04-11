@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,27 +6,24 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth;
     public float health;
-    public Image filler;
-    private PlayerRespawn playerRespawn;
-  private void Start()
+    public float maxHealth = 10;
+    public int damage = 2;
+    
+
+    void Start()
     {
-        playerRespawn = GameObject.Find("Player").GetComponent<PlayerRespawn>();
+        health = maxHealth;
     }
 
- public void TakeDamage(int damage)
+    public void TakeDamage(int amount)
     {
-        health -= damage;
+        health -= amount;
         if (health <= 0)
         {
-            playerRespawn.RespawnNow();
+            Destroy(gameObject);
         }
     }
-  
-    private void Update()
-    {
-        filler.fillAmount = health / maxHealth;
-    }
+ 
 
 }

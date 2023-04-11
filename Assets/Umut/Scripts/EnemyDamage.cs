@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int damage;
     public PlayerHealth playerHealth;
+    void Start()
+    {
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerHealth.TakeDamage(damage);
+            playerHealth.TakeDamage(2);
         }
     }
+
 }
