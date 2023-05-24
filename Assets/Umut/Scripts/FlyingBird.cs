@@ -43,7 +43,7 @@ public class FlyingBird : MonoBehaviour
     void moveRight()
     {
         movingRight = true;
-        localScale.x = 0.2f;
+        localScale.x = 0.1f;
         transform.localScale = localScale;
         rb.velocity = new Vector2(localScale.x * moveSpeed, rb.velocity.y);
     }
@@ -51,7 +51,7 @@ public class FlyingBird : MonoBehaviour
     void moveLeft()
     {
         movingRight = false;
-        localScale.x = -0.2f;
+        localScale.x = -0.1f;
         transform.localScale = localScale;
         rb.velocity = new Vector2(localScale.x * moveSpeed, rb.velocity.y);
     }
